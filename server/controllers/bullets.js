@@ -36,6 +36,10 @@ const update = (req, res) => {
       return res.status(200).json(bullet)
     })
   })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json(err)
+  })
 }
 
 const deleteBullet = (req, res) => {

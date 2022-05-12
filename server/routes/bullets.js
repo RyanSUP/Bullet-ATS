@@ -4,7 +4,7 @@ import * as bulletsCtrl from '../controllers/bullets.js'
 
 const router = Router()
 
-// TODO Protect the routes after testing
+
 // ============= Protected routes ================
 router.use(decodeUserFromToken)
 
