@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import * as bulletService from '../services/bulletService'
 
 // Component imports
-import { NewBulletForm, BulletList } from './index'
+import { NewBulletForm, BulletList, SearchBar } from './index'
 
 const Home = ({user, handleLogout}) => {
   const [bullets, setBullets] = useState([])
@@ -28,6 +28,7 @@ const Home = ({user, handleLogout}) => {
   return (
     <>
       <button onClick={handleLogout}>LOGOUT</button>
+      <SearchBar />
       <NewBulletForm postBullet={postBullet} />
       <BulletList bullets={bullets} />
     </>
