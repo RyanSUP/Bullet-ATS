@@ -18,7 +18,7 @@ const create = (req, res) => {
     profile.bullets.push({ text: req.body.text })
     profile.save()
     .then(updatedProfile => {
-      return res.status(201).json(updatedProfile)
+      return res.status(201).json(updatedProfile.bullets)
     })
   })
   .catch(err => {
