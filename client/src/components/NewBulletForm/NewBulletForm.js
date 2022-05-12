@@ -17,9 +17,12 @@ const NewBulletForm = ({ postBullet }) => {
   return (
     <form onChange={handleChange} onSubmit={handleSubmit}>
       <input 
-        type='text' 
-        defaultValue={formData.text} 
+        type='text'
+        onChange={handleChange}
+        value={formData.text}
+        name="text"
         required 
+        placeholder='New bullet'
       />
     </form>
   );

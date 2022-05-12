@@ -1,6 +1,28 @@
+import { useState } from 'react'
 const SearchBar = () => {
+  const [formData, setFormData] = useState({
+    filterParams: ''
+  })
+
+  const handleChange = (e) => {
+    setFormData({filterParams: e.target.value})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <>Search</>
+    <form onSubmit={handleSubmit}>
+      <input 
+        onChange={handleChange}
+        type='text'
+        name="filterParams"
+        value={formData.text}
+        required
+        placeholder='Search ATS terms'
+      />
+    </form>
   );
 }
  
