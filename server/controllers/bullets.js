@@ -1,6 +1,16 @@
 import { Profile } from '../models/profile.js'
 
-const index = () => null
+const index = (req, res) => {
+  Profile.findById(req.user.profile)
+  .then(profile => {
+    const bullets = profile.bullets
+    return res.status(200).json(bullets)
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json(err)
+  })
+}
 
 const create = (req, res) => {
   Profile.findById(req.user.profile)
@@ -21,5 +31,6 @@ const update = () => null
 const deleteBullet = () => null
 
 export {
-  create
+  index,
+  create,
 }

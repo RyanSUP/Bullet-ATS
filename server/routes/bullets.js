@@ -10,9 +10,9 @@ router.use(decodeUserFromToken)
 //localhost:3000/api/bullets/
 router.post('/', checkAuth, bulletsCtrl.create)
 
-// // Get all bullets
-// //localhost:3000/api/bullets/
-// router.get('/', bulletsCtrl.index)
+// Get all bullets
+//localhost:3000/api/bullets/
+router.get('/', bulletsCtrl.index)
 
 // // Update a bullet
 // //localhost:3000/api/bullets/:id
