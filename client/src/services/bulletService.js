@@ -11,16 +11,13 @@ const getAll = async () => {
 }
 
 const postNew = async (data) => {
-  const newBullet = {
-    text: data
-  }
   const res = await fetch(BASE_URL, {
     method: 'POST',
     headers: { 
       Authorization: `Bearer ${tokenService.getToken()}`,
       "Content-Type": 'application/json',
     },
-    body: JSON.stringify(newBullet),
+    body: JSON.stringify(data),
   })
   return await res.json()
 }

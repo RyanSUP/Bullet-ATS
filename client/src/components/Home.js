@@ -1,11 +1,14 @@
 import { useState, useEffect, useCallback } from 'react'
 import * as bulletService from '../services/bulletService'
 
+// Component imports
+import { NewBulletForm } from './index'
+
 const Home = ({user, handleLogout}) => {
   const [bullets, setBullets] = useState([])
 
-  const postBullet = async (bulletText)=> {
-    const newBullet = await bulletService.postNew(bulletText)
+  const postBullet = async (data)=> {
+    const newBullet = await bulletService.postNew(data)
     setBullets((prev)=> [newBullet, ...prev])
   }
 
@@ -24,7 +27,7 @@ const Home = ({user, handleLogout}) => {
   return (
     <>
       <button onClick={handleLogout}>LOGOUT</button>
-      <button onClick={postBullet}>TEST</button>
+      <NewBulletForm postBullet={postBullet} />
     </>
   );
 }
