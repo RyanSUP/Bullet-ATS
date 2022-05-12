@@ -2,7 +2,7 @@ const BulletList = ({bullets}) => {
   return (
     <ul>
       {bullets.map((bullet) => 
-        <li>{bullet.text}</li>
+        <li key={bullet._id}>{bullet.text}</li>
       )}
     </ul>
   );
