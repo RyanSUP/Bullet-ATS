@@ -1,11 +1,7 @@
 import { useState } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
-import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { NavBar, SignupForm, Home } from './components'
+
 import * as authService from './services/authService'
 
 const App = () => {
@@ -14,7 +10,7 @@ const App = () => {
 
   const handleLogout = () => {
     authService.logout()
-    setUser(null)
+    setUser({})
     navigate('/')
   }
 
@@ -26,23 +22,17 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
         <Route
-          path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-        <Route
-          path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-        <Route
-          path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
-        />
+          exact
+          path='/'
+          element={
+            user
+            ? <Home />
+            // Should be signup or login form
+            : <SignupForm handleSignupOrLogin={handleSignupOrLogin} />
+          }
+        >
+        </Route>
       </Routes>
     </>
   )
