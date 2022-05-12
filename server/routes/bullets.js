@@ -20,8 +20,8 @@ router.get('/', bulletsCtrl.index)
 //localhost:3000/api/bullets/:id
 router.patch('/:id', bulletsCtrl.update)
 
-// // Delete a bullet
-// //localhost:3000/api/bullets/:id
-// router.delete('/:id', bulletsCtrl.delete)
+// Delete a bullet
+//localhost:3000/api/bullets/:id
+router.delete('/:id', bulletsCtrl.delete)
 
 export { router }
