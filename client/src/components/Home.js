@@ -1,7 +1,7 @@
-const Home = () => {
+const Home = ({user, handleLogout}) => {
   return (
     <>
-    <p>Hello</p>
+      <button onClick={handleLogout}>LOGOUT</button>
     </>
   );
 }
