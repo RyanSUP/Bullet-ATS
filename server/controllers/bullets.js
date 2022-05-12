@@ -15,10 +15,11 @@ const index = (req, res) => {
 const create = (req, res) => {
   Profile.findById(req.user.profile)
   .then(profile => {
-    profile.bullets.push({ text: req.body.text })
+    const bulletIndex = profile.bullets.push({ text: req.body.text })
     profile.save()
     .then(updatedProfile => {
-      return res.status(201).json(updatedProfile.bullets)
+      const newBullet = updatedProfile.bullets[bulletIndex - 1]
+      return res.status(201).json(newBullet)
     })
   })
   .catch(err => {
