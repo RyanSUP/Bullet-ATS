@@ -5,7 +5,9 @@ import * as bulletsCtrl from '../controllers/bullets.js'
 const router = Router()
 
 // TODO Protect the routes after testing
+// ============= Protected routes ================
 router.use(decodeUserFromToken)
+
 // Create a bullet
 //localhost:3000/api/bullets/
 router.post('/', checkAuth, bulletsCtrl.create)
@@ -14,9 +16,9 @@ router.post('/', checkAuth, bulletsCtrl.create)
 //localhost:3000/api/bullets/
 router.get('/', bulletsCtrl.index)
 
-// // Update a bullet
-// //localhost:3000/api/bullets/:id
-// router.patch('/:id', bulletsCtrl.update)
+// Update a bullet
+//localhost:3000/api/bullets/:id
+router.patch('/:id', bulletsCtrl.update)
 
 // // Delete a bullet
 // //localhost:3000/api/bullets/:id

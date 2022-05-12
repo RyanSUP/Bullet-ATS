@@ -26,11 +26,22 @@ const create = (req, res) => {
     res.status(500).json(err)
   })
 }
-const update = () => null
+const update = (req, res) => {
+  Profile.findById(req.user.profile)
+  .then(profile => {
+    const bullet = profile.bullets.id(req.params.id)
+    bullet.text = req.body.text
+    profile.save()
+    .then(() => {
+      return res.status(201).json(bullet)
+    })
+  })
+}
 
 const deleteBullet = () => null
 
 export {
   index,
   create,
+  update,
 }
