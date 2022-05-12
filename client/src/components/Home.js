@@ -12,6 +12,7 @@ const Home = ({user, handleLogout}) => {
     // Make a request to post the bullet
     const updatedBullets = await bulletService.postNew(bulletText)
     // Add the bullet to state, it should be at the top.
+    updatedBullets.reverse()
     setBullets(updatedBullets)
   }, [])
 
