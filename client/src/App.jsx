@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import { NavBar, SignupForm, Home } from './components'
+import { NavBar, Signup, Home } from './components'
 
 import * as authService from './services/authService'
 
@@ -20,7 +20,6 @@ const App = () => {
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route
           exact
@@ -29,7 +28,7 @@ const App = () => {
             user
             ? <Home />
             // Should be signup or login form
-            : <SignupForm handleSignupOrLogin={handleSignupOrLogin} />
+            : <Signup handleSignupOrLogin={handleSignupOrLogin} />
           }
         >
         </Route>
