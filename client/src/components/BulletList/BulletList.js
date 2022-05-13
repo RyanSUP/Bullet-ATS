@@ -1,7 +1,7 @@
-const BulletList = ({bullets}) => {
+const BulletList = ({filteredBullets}) => {
   return (
     <ul>
-      {bullets.map((bullet) => 
+      {filteredBullets.map((bullet) => 
         <li key={bullet._id}>{bullet.text}</li>
       )}
     </ul>

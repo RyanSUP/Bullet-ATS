@@ -1,11 +1,12 @@
 import { useState } from 'react'
-const SearchBar = () => {
+const SearchBar = ({ filterBullets }) => {
   const [formData, setFormData] = useState({
     filterParams: ''
   })
 
   const handleChange = (e) => {
     setFormData({filterParams: e.target.value})
+    filterBullets(e.target.value)
   }
 
   const handleSubmit = (e) => {
