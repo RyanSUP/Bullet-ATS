@@ -48,11 +48,6 @@ const Home = ({user, handleLogout}) => {
     setFilteredBullets(updatedBullets)
   }
 
-  // TODO duplicate bullet
-  const duplicateBullet = (data) => {
-    
-  }
-
   // TODO clipboard bullet
   const clipboardBullet = (data) => {
     
@@ -87,7 +82,7 @@ const Home = ({user, handleLogout}) => {
               <button>Clipboard</button>
               {/* // TODO update needs a form. This will be handled when the text is rendered in an input field. */}
               <button onClick={()=>updateBullet()}>Update</button>
-              <button>Duplicate</button>
+              <button onClick={()=>postBullet({text: bullet.text})}>Duplicate</button>
             </div>
           </li>
         )}
