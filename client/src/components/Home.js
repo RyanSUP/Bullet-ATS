@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import * as bulletService from '../services/bulletService'
 
 // Component imports
-import { NewBulletForm, SearchBar, Bullet, BulletWrapper } from './index'
+import { NewBulletForm, SearchBar } from './index'
 
 const Home = ({user, handleLogout}) => {
   const [bullets, setBullets] = useState([])
@@ -28,6 +28,31 @@ const Home = ({user, handleLogout}) => {
     }
   }, [setFilteredBullets, bullets])
 
+  // TODO delete bullet
+  const deleteBullet = (data) => {
+    console.log(bullets.length)
+    bulletService = bulletService.delete(data)
+    let updatedBullets = bullets.filter((bullet) => bullet._id !== data._id)
+    setBullets(updatedBullets)
+    setFilteredBullets(updatedBullets)
+    console.log(updatedBullets.length)
+  }
+
+  // TODO update bullet
+  const updateBullet = (data) => {
+    
+  }
+
+  // TODO duplicate bullet
+  const duplicateBullet = (data) => {
+    
+  }
+
+  // TODO clipboard bullet
+  const clipboardBullet = (data) => {
+    
+  }
+
   useEffect(()=> {
     try {
       const fetchBullets = async () => {
@@ -51,8 +76,11 @@ const Home = ({user, handleLogout}) => {
         </li>
         {filteredBullets.map((bullet) => 
           <li key={bullet._id}>
+            <p>{bullet.text}</p>
             <div>
-              <p>{bullet.text}</p>
+              <button onClick={()=>deleteBullet(bullet)}>Delete</button>
+              <button>Clipboard</button>
+              <button>Duplicate</button>
             </div>
           </li>
         )}

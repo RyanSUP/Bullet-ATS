@@ -22,7 +22,20 @@ const postNew = async (data) => {
   return await res.json()
 }
 
+const deleteBullet = async (data) => {
+  const res = await fetch(`${BASE_URL}/${data._id}`, {
+    method: 'DELETE',
+    headers: { 
+      Authorization: `Bearer ${tokenService.getToken()}`,
+      "Content-Type": 'application/json',
+    },
+  })
+  return await res.json()
+}
+
 export {
   getAll,
   postNew,
+  deleteBullet as delete,
+
 }
