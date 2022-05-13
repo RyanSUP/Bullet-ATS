@@ -28,19 +28,24 @@ const Home = ({user, handleLogout}) => {
     }
   }, [setFilteredBullets, bullets])
 
-  // TODO delete bullet
   const deleteBullet = (data) => {
-    console.log(bullets.length)
-    bulletService = bulletService.delete(data)
+    bulletService.delete(data)
     let updatedBullets = bullets.filter((bullet) => bullet._id !== data._id)
     setBullets(updatedBullets)
     setFilteredBullets(updatedBullets)
-    console.log(updatedBullets.length)
   }
 
-  // TODO update bullet
   const updateBullet = (data) => {
-    
+    bulletService.update(data)
+    let updatedBullets = bullets.map((bullet)=> {
+      if(bullet._id === data._id) {
+        return {...data}
+      } else {
+        return bullet
+      }
+    })
+    setBullets(updatedBullets)
+    setFilteredBullets(updatedBullets)
   }
 
   // TODO duplicate bullet
@@ -80,6 +85,8 @@ const Home = ({user, handleLogout}) => {
             <div>
               <button onClick={()=>deleteBullet(bullet)}>Delete</button>
               <button>Clipboard</button>
+              {/* // TODO update needs a form. This will be handled when the text is rendered in an input field. */}
+              <button onClick={()=>updateBullet()}>Update</button>
               <button>Duplicate</button>
             </div>
           </li>
