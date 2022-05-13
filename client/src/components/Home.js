@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import * as bulletService from '../services/bulletService'
 
 // Component imports
-import { NewBulletForm, SearchBar } from './index'
+import { NewBulletForm, SearchBar, Bullet, BulletWrapper } from './index'
 
 const Home = ({user, handleLogout}) => {
   const [bullets, setBullets] = useState([])
@@ -50,7 +50,13 @@ const Home = ({user, handleLogout}) => {
           <NewBulletForm postBullet={postBullet} />
         </li>
         {filteredBullets.map((bullet) => 
-          <li key={bullet._id}>{bullet.text}</li>
+          // TODO Bullet will be in a div
+          // TODO Div will have CRUD options, or maybe the li?
+          <li key={bullet._id}>
+            <BulletWrapper>
+              <Bullet bullet={bullet}/>
+            </BulletWrapper>
+          </li>
         )}
       </ul>
     </>

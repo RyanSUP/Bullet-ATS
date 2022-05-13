@@ -6,3 +6,5 @@ export { default as ChangePasswordForm } from "./ChangePasswordForm/ChangePasswo
 export { default as Home } from "./Home";
 export { default as NewBulletForm } from "./NewBulletForm";
 export { default as SearchBar } from "./SearchBar";
+export { default as Bullet } from "./Bullet";
+export { default as BulletWrapper } from "./BulletWrapper";
