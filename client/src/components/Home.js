@@ -50,12 +50,10 @@ const Home = ({user, handleLogout}) => {
           <NewBulletForm postBullet={postBullet} />
         </li>
         {filteredBullets.map((bullet) => 
-          // TODO Bullet will be in a div
-          // TODO Div will have CRUD options, or maybe the li?
           <li key={bullet._id}>
-            <BulletWrapper>
-              <Bullet bullet={bullet}/>
-            </BulletWrapper>
+            <div>
+              <p>{bullet.text}</p>
+            </div>
           </li>
         )}
       </ul>
