@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import * as bulletService from '../services/bulletService'
 
 // Component imports
-import { NewBulletForm, BulletList, SearchBar } from './index'
+import { NewBulletForm, SearchBar } from './index'
 
 const Home = ({user, handleLogout}) => {
   const [bullets, setBullets] = useState([])
@@ -12,6 +12,8 @@ const Home = ({user, handleLogout}) => {
   const postBullet = async (data)=> {
     const newBullet = await bulletService.postNew(data)
     setBullets((prev)=> [newBullet, ...prev])
+    // TODO Find a way to handle adding bullets that works with filter
+    setFilteredBullets((prev)=> [newBullet, ...prev])
   }
 
   const filterBullets = useCallback((data) =>{
@@ -24,7 +26,7 @@ const Home = ({user, handleLogout}) => {
     } catch(error) {
       setFilteredBullets(bullets)
     }
-  })
+  }, [setFilteredBullets, bullets])
 
   useEffect(()=> {
     try {
@@ -43,8 +45,14 @@ const Home = ({user, handleLogout}) => {
     <>
       <button onClick={handleLogout}>LOGOUT</button>
       <SearchBar filterBullets={filterBullets} />
-      <NewBulletForm postBullet={postBullet} />
-      <BulletList filteredBullets={filteredBullets} />
+      <ul>
+        <li>
+          <NewBulletForm postBullet={postBullet} />
+        </li>
+        {filteredBullets.map((bullet) => 
+          <li key={bullet._id}>{bullet.text}</li>
+        )}
+      </ul>
     </>
   );
 }

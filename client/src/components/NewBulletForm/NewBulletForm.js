@@ -10,7 +10,9 @@ const NewBulletForm = ({ postBullet }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    postBullet(formData)
+    if(formData.text !== '' || formData.text !== ' ') {
+      postBullet(formData)
+    }
     setFormData({text: ''})
   }
 
