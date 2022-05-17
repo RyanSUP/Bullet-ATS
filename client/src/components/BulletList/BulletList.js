@@ -1,10 +1,15 @@
-const BulletList = ({children}) => {
+import {NewBulletForm, Bullet} from '../index'
+const BulletList = ({filteredBullets, postBullet}) => {
   return (
     <ul>
-      {children?.map
-        ? children.map((child, index) => <li key={index}>{child}</li>)
-        : <li>{children}</li>
-      }
+      <li>
+        <NewBulletForm postBullet={postBullet} />
+      </li>
+      {filteredBullets.map((bullet)=> 
+        <li key={bullet._id}>
+          <Bullet bullet={bullet} />
+        </li>
+      )}
     </ul>
   );
 }

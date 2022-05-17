@@ -9,3 +9,4 @@ export { default as NewBulletForm } from "./NewBulletForm";
 export { default as SearchBar } from "./SearchBar";
 export { default as Nav } from "./Nav";
 export { default as BulletList } from "./BulletList";
+export { default as Bullet } from "./Bullet";

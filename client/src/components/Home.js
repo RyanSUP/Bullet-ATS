@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import * as bulletService from '../services/bulletService'
 
 // Component imports
-import { NewBulletForm, SearchBar, Nav, BulletList } from './index'
+import {SearchBar, Nav, BulletList } from './index'
 
 const Home = ({user, handleLogout}) => {
   const [bullets, setBullets] = useState([])
@@ -87,24 +87,10 @@ const Home = ({user, handleLogout}) => {
 
       <Nav handleLogout={handleLogout} />
       <SearchBar filterBullets={filterBullets} />
-      <BulletList>
-          <NewBulletForm postBullet={postBullet} />
-      </BulletList>
-      <ul>
-        {filteredBullets.map((bullet) => 
-          <li key={bullet._id} onClick={()=>setActive(bullet._id)}>
-            <p>{bullet.text}</p>
-            {/* These will display when hovered or when bullet is active */}
-            <div>
-              <button onClick={()=>deleteBullet(bullet)}>Delete</button>
-              <button onClick={()=>clipboardBullet(bullet.text)}>Clipboard</button>
-              {/* // TODO update needs a form. This will be handled when the text is rendered in an input field. */}
-              <button onClick={()=>updateBullet()}>Update</button>
-              <button onClick={()=>postBullet({text: bullet.text})}>Duplicate</button>
-            </div>
-          </li>
-        )}
-      </ul>
+      <BulletList 
+        postBullet={postBullet}
+        filteredBullets={filteredBullets}
+      />
     </>
   );
 }
