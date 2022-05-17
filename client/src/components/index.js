@@ -10,3 +10,4 @@ export { default as SearchBar } from "./SearchBar";
 export { default as Nav } from "./Nav";
 export { default as BulletList } from "./BulletList";
 export { default as Bullet } from "./Bullet";
+export { default as BulletControls } from "./BulletControls";

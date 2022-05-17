@@ -71,23 +71,13 @@ const Home = ({user, handleLogout}) => {
 
   return (
     <>
-      {/* // * Nav */}
-      {/* // * Nav End */}
-      {/* // * Centered Body */}
-        {/* // * Searchbar */}
-        {/* // * Searchvar end */}
-        {/* // * List */}
-          {/* // * New Bullet form is first li */}
-          {/* // * New BUllet form end */}
-          {/* // * List item bullet */}
-            {/* // * Text */}
-            {/* // * Button Menu */}
-          {/* // * End list item bullet */}
-        {/* // * End list */}
-
       <Nav handleLogout={handleLogout} />
       <SearchBar filterBullets={filterBullets} />
-      <BulletList 
+      <BulletList
+        updateBullet={updateBullet}
+        deleteBullet={deleteBullet}
+        clipboardBullet={clipboardBullet}
+        setActive={setActive}
         postBullet={postBullet}
         filteredBullets={filteredBullets}
       />
