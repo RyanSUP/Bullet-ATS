@@ -88,12 +88,9 @@ const Home = ({user, handleLogout}) => {
       <Nav handleLogout={handleLogout} />
       <SearchBar filterBullets={filterBullets} />
       <BulletList>
-
+          <NewBulletForm postBullet={postBullet} />
       </BulletList>
       <ul>
-        <li>
-          <NewBulletForm postBullet={postBullet} />
-        </li>
         {filteredBullets.map((bullet) => 
           <li key={bullet._id} onClick={()=>setActive(bullet._id)}>
             <p>{bullet.text}</p>
