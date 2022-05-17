@@ -1,7 +1,7 @@
 const BulletList = ({children}) => {
   return (
     <ul>
-      { children }
+      {children.map((child) => <li>{child}</li>)}
     </ul>
   );
 }

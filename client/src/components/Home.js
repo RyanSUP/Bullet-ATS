@@ -88,7 +88,7 @@ const Home = ({user, handleLogout}) => {
       <Nav handleLogout={handleLogout} />
       <SearchBar filterBullets={filterBullets} />
       <BulletList>
-        <li>Test</li>
+
       </BulletList>
       <ul>
         <li>
