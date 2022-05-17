@@ -2,18 +2,22 @@ import { useState, useEffect, useCallback } from 'react'
 import * as bulletService from '../services/bulletService'
 
 // Component imports
-import { NewBulletForm, SearchBar } from './index'
+import { NewBulletForm, SearchBar, Nav } from './index'
 
 const Home = ({user, handleLogout}) => {
   const [bullets, setBullets] = useState([])
   const [filteredBullets, setFilteredBullets] = useState([])
-  // May need an active bullet 
+  const [activeBullet, setActiveBullet] = useState(null)
 
   const postBullet = async (data)=> {
     const newBullet = await bulletService.postNew(data)
     setBullets((prev)=> [newBullet, ...prev])
     // TODO Find a way to handle adding bullets that works with filter
     setFilteredBullets((prev)=> [newBullet, ...prev])
+  }
+
+  const setActive = (id) => {
+    setActiveBullet(id)
   }
 
   const filterBullets = useCallback((data) =>{
@@ -67,15 +71,30 @@ const Home = ({user, handleLogout}) => {
 
   return (
     <>
-      <button onClick={handleLogout}>LOGOUT</button>
+      {/* // * Nav */}
+      {/* // * Nav End */}
+      {/* // * Centered Body */}
+        {/* // * Searchbar */}
+        {/* // * Searchvar end */}
+        {/* // * List */}
+          {/* // * New Bullet form is first li */}
+          {/* // * New BUllet form end */}
+          {/* // * List item bullet */}
+            {/* // * Text */}
+            {/* // * Button Menu */}
+          {/* // * End list item bullet */}
+        {/* // * End list */}
+
+      <Nav handleLogout={handleLogout} />
       <SearchBar filterBullets={filterBullets} />
       <ul>
         <li>
           <NewBulletForm postBullet={postBullet} />
         </li>
         {filteredBullets.map((bullet) => 
-          <li key={bullet._id}>
+          <li key={bullet._id} onClick={()=>setActive(bullet._id)}>
             <p>{bullet.text}</p>
+            {/* These will display when hovered or when bullet is active */}
             <div>
               <button onClick={()=>deleteBullet(bullet)}>Delete</button>
               <button onClick={()=>clipboardBullet(bullet.text)}>Clipboard</button>
