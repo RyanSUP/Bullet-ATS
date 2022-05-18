@@ -14,7 +14,10 @@ const SearchBar = ({ filterBullets }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form 
+      onSubmit={handleSubmit}
+      className="m-12"
+    >
       <input 
         onChange={handleChange}
         type='text'
@@ -22,6 +25,7 @@ const SearchBar = ({ filterBullets }) => {
         value={formData.text}
         required
         placeholder='Search ATS terms'
+        className="p-2 border-b-2"
       />
     </form>
   );

@@ -72,16 +72,18 @@ const Home = ({user, handleLogout}) => {
   return (
     <>
       <Nav handleLogout={handleLogout} />
-      <SearchBar filterBullets={filterBullets} />
-      <NewBulletForm postBullet={postBullet} />
-      <BulletList
-        updateBullet={updateBullet}
-        deleteBullet={deleteBullet}
-        clipboardBullet={clipboardBullet}
-        setActive={setActive}
-        postBullet={postBullet}
-        filteredBullets={filteredBullets}
-      />
+      <div className="flex flex-col items-center">
+        <SearchBar filterBullets={filterBullets} />
+        <NewBulletForm postBullet={postBullet} />
+        <BulletList
+          updateBullet={updateBullet}
+          deleteBullet={deleteBullet}
+          clipboardBullet={clipboardBullet}
+          setActive={setActive}
+          postBullet={postBullet}
+          filteredBullets={filteredBullets}
+        />
+      </div>
     </>
   );
 }

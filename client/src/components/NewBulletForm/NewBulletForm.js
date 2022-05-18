@@ -19,7 +19,7 @@ const NewBulletForm = ({ postBullet }) => {
   return (
     <ul>
       <li>
-        <form onChange={handleChange} onSubmit={handleSubmit}>
+        <form onChange={handleChange} onSubmit={handleSubmit} >
           <input 
             type='text'
             onChange={handleChange}
@@ -27,6 +27,7 @@ const NewBulletForm = ({ postBullet }) => {
             name="text"
             required 
             placeholder='New bullet'
+            className="p-2 border-b-2"
           />
         </form>
       </li>
