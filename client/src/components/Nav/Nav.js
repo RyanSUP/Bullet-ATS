@@ -1,6 +1,14 @@
-const Nav = ({handleLogout}) => {
+const Nav = ({ handleLogout }) => {
+  
   return (
-    <button onClick={handleLogout}>LOGOUT</button>
+    <div className="bg-slate-600 h-10 flex justify-end">
+      <button 
+        onClick={handleLogout}
+        className="hover:cursor-pointer h-full mr-10 text-slate-200"
+      >
+        LOGOUT
+      </button>
+    </div>
   );
 }
  
