@@ -4,7 +4,7 @@ const BulletControls = ({
   clipboardBullet, 
   updateBullet, 
   postBullet}) => {
-  
+
   return (
     <div className="text-xl">
       <button className="mx-1" onClick={()=>deleteBullet(bullet)}>

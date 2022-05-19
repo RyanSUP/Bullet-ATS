@@ -1,11 +1,16 @@
-import { BulletControls } from '../index'
+import { BulletControls, EditBulletForm } from '../index'
 const Bullet = ({bullet, activeBullet, ...rest}) => {
 
   return (
     <div className="h-fit flex justify-between p-3">
-      <p>{bullet.text}</p>
-      {bullet._id === activeBullet &&
-        <BulletControls bullet={bullet} {...rest} />
+      {bullet._id === activeBullet
+      ?
+        <>
+        {/* //* Edit bullet form needs to change the bullet text. */}
+          <EditBulletForm bullet={bullet} />
+          <BulletControls bullet={bullet} {...rest} />
+        </>
+      : <p>{bullet.text}</p>
       }
     </div>
   );
