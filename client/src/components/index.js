@@ -11,3 +11,4 @@ export { default as Nav } from "./Nav";
 export { default as BulletList } from "./BulletList";
 export { default as Bullet } from "./Bullet";
 export { default as BulletControls } from "./BulletControls";
+export { default as EditBulletForm } from "./EditBulletForm";

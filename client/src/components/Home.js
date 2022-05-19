@@ -40,6 +40,7 @@ const Home = ({user, handleLogout}) => {
   }
 
   const updateBullet = (data) => {
+    console.log(data)
     bulletService.update(data)
     let updatedBullets = bullets.map((bullet)=> {
       if(bullet._id === data._id) {
@@ -80,6 +81,7 @@ const Home = ({user, handleLogout}) => {
           deleteBullet={deleteBullet}
           clipboardBullet={clipboardBullet}
           setActive={setActive}
+          activeBullet={activeBullet}
           postBullet={postBullet}
           filteredBullets={filteredBullets}
         />

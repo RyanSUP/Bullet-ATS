@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import styles from './SignupForm.module.css'
 import * as authService from '../../services/authService'
 
 const SignupForm = props => {
@@ -41,61 +40,62 @@ const SignupForm = props => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className="flex flex-col items-center justify-center h-screen"
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
-        <input
-          type="text"
-          autoComplete="off"
-          id="name"
-          value={name}
-          name="name"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
-        <input
-          type="text"
-          autoComplete="off"
-          id="email"
-          value={email}
-          name="email"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="password"
-          value={password}
-          name="password"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
-        </label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="confirm"
-          value={passwordConf}
-          name="passwordConf"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
-          Sign Up
-        </button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
+      <div className="bg-slate-400 p-4 rounded">
+        <div className="m-1">
+          <input
+            type="text"
+            autoComplete="off"
+            id="name"
+            value={name}
+            name="name"
+            onChange={handleChange}
+            placeholder="Name"
+            className="border-2 rounded-b p-3"
+          />
+        </div>
+        <div className="m-1">
+          <input
+            type="text"
+            autoComplete="off"
+            id="email"
+            value={email}
+            name="email"
+            onChange={handleChange}
+            placeholder="Email"
+            className="border-2 rounded-b p-3"
+          />
+        </div>
+        <div className="m-1">
+          <input
+            type="password"
+            autoComplete="off"
+            id="password"
+            value={password}
+            name="password"
+            onChange={handleChange}
+            placeholder="Password"
+            className="border-2 rounded-b p-3"
+          />
+        </div>
+        <div className="m-1">
+          <input
+            type="password"
+            autoComplete="off"
+            id="confirm"
+            value={passwordConf}
+            name="passwordConf"
+            onChange={handleChange}
+            placeholder="Confirm password"
+            className="border-2 rounded-b p-3"
+          />
+        </div>
+        <div className="m-1">
+          <button disabled={isFormInvalid()} className="w-full bg-slate-600 p-3 text-slate-200 hover:cursor-pointer hover:bg-slate-200 hover:text-slate-600">
+            Sign Up
+          </button>
+        </div>
       </div>
     </form>
   )
