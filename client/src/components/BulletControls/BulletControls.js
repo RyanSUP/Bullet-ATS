@@ -6,12 +6,19 @@ const BulletControls = ({
   postBullet}) => {
   
   return (
-    <div>
-      <button className="mx-1" onClick={()=>deleteBullet(bullet)}>Delete</button>
-      <button className="mx-1" onClick={()=>clipboardBullet(bullet.text)}>Clipboard</button>
-      {/* // TODO update needs a form. This will be handled when the text is rendered in an input field. */}
-      <button className="mx-1" onClick={()=>updateBullet(bullet)}>Update</button>
-      <button className="mx-1" onClick={()=>postBullet({text: bullet.text})}>Duplicate</button>
+    <div className="text-xl">
+      <button className="mx-1" onClick={()=>deleteBullet(bullet)}>
+        <i className="fa-solid fa-trash"></i>
+      </button>
+      <button className="mx-1" onClick={()=>clipboardBullet(bullet.text)}>
+        <i className="fa-solid fa-clipboard"></i>
+      </button>
+      <button className="mx-1" onClick={()=>updateBullet(bullet)}>
+        <i className="fa-solid fa-floppy-disk"></i>
+      </button>
+      <button className="mx-1" onClick={()=>postBullet({text: bullet.text})}>
+        <i className="fa-solid fa-copy"></i>
+      </button>
     </div>
   );
 }
