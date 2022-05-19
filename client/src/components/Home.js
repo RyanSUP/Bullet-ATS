@@ -80,6 +80,7 @@ const Home = ({user, handleLogout}) => {
           deleteBullet={deleteBullet}
           clipboardBullet={clipboardBullet}
           setActive={setActive}
+          activeBullet={activeBullet}
           postBullet={postBullet}
           filteredBullets={filteredBullets}
         />
