@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import styles from './LoginForm.module.css'
 import * as authService from '../../services/authService'
 
 const LoginForm = props => {
@@ -30,35 +29,36 @@ const LoginForm = props => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className="flex flex-col items-center justify-center h-screen"
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
-        <input
-          type="text"
-          autoComplete="off"
-          id="email"
-          value={formData.email}
-          name="email"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="password"
-          value={formData.pw}
-          name="pw"
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <button className={styles.button}>Log In</button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
+      <div className="bg-slate-400 p-4 rounded">
+        <div className="m-1">
+          <input
+            type="text"
+            autoComplete="off"
+            id="email"
+            value={formData.email}
+            name="email"
+            onChange={handleChange}
+            placeholder="Email"
+            className="border-2 rounded-b p-3"
+          />
+        </div>
+        <div className="m-1">
+          <input
+            type="password"
+            autoComplete="off"
+            id="password"
+            value={formData.pw}
+            name="pw"
+            onChange={handleChange}
+            placeholder="Password"
+            className="border-2 rounded-b p-3"
+          />
+        </div>
+        <div>
+          <button className="w-full bg-slate-600 p-3 text-slate-200 hover:cursor-pointer hover:bg-slate-200 hover:text-slate-600">Log In</button>
+        </div>
       </div>
     </form>
   )

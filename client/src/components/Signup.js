@@ -16,7 +16,14 @@ const Signup = ({handleSignupOrLogin}) => {
 
   return (
     <>
-      <button onClick={handleButton}>Login</button>
+    <div className="bg-slate-600 h-10 flex justify-end">
+      <button 
+        onClick={handleButton}
+        className="hover:cursor-pointer h-full mr-10 text-slate-200"
+      >
+        LOGIN
+      </button>
+    </div>
       {errorMessage &&
         <p>{errorMessage}</p>
       }

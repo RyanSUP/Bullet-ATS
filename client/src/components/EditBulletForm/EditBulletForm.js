@@ -14,14 +14,14 @@ const EditBulletForm = ({ bullet }) => {
   }
 
   return (
-    <form onChange={handleChange} onSubmit={handleSubmit} >
+    <form onChange={handleChange} onSubmit={handleSubmit}>
       <input 
         type='text'
         onChange={handleChange}
         value={formData.text}
         name="text"
         required 
-        className="w-full border-2 p-3"
+        className=" border-2 p-3"
       />
     </form>
   );
